@@ -1,0 +1,11 @@
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+
+- Billspike is intended to help house shares manage the common bills and distribute what's owed to everyone
+- each user should have a weight in the share
+- a user can be a general manager, an owner of a share, or an invitee taking part in a share
+- a new user can create a share, not search
+- an owner can invite others by email
+- a user can add items bought
+- an owner can set up reminders to be sent to users to pay their dues

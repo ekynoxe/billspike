@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+1:
+  id: 1
+  name: Euro
+  symbol: EUR
+  euro_value: 1
+
+2:
+  id: 2
+  name: British Pound
+  symbol: GBP
+  euro_value: 1.10

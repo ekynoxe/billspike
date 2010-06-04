@@ -1,0 +1,9 @@
+<div id="content">
+	<h1>Edit <%= @share.name %></h1>
+	 
+	<% form_for @share do |f| %>
+	  <%= f.error_messages %>
+	  <%= render :partial => "form", :object => f %>
+	  <%= f.submit "Update" %>
+	<% end %>
+</div>

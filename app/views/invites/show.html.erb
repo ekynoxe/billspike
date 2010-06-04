@@ -1,0 +1,8 @@
+<div id="content">
+	<h1>You have been invited</h1>
+	<p>
+	<%= @invite.sender.username %> invited you to take part in the share '<%= @invite.share.name %>'
+	</p>
+	<%= link_to 'take part', signup_path(@invite.token) %>
+	<%= link_to 'later', root_path %>
+</div>

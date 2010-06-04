@@ -1,0 +1,7 @@
+<h2>paid</h2>
+<a class="userLine selected" href=".?slct_usr=-1">
+	<span class="amount"><%= @share.total %> &pound;</span>
+	<div class="colorTag all"></div>
+	<span class="userName">From Everyone</span>
+</a>
+<%= render :partial => "users/user_total", :collection => @share.users, :as => :user %>

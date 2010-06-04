@@ -1,0 +1,9 @@
+<div id="content">
+	<h1>New group</h1>
+	 
+	<% form_for @share, :url => shares_path do |f| %>
+	  <%= error_messages_for :share, :header_message => "", :message => "" %>
+	  <%= render :partial => "form", :object => f %>
+	  <%= f.submit "Create" %>
+	<% end %>
+</div>

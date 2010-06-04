@@ -1,0 +1,5 @@
+<% if @items.empty? %>
+  <div>Nothing to display</div>
+<% else %>
+<%= render :partial => "items/item_details", :collection => @items.reverse, :as => :i %>
+<% end %>

@@ -1,0 +1,5 @@
+<% if @payments.empty? %>
+  <div>Nothing to display</div>
+<% else %>
+<%= render :partial => "payments/payment_details", :collection => @payments.reverse, :as => :p %>
+<% end %>

@@ -1,0 +1,22 @@
+<% content_for :sidebar do %>
+<div id="sidebar">
+	<h2>members</h2>
+	<%	current_share.users.each do |u| %>
+		<%= format_sidebar_share_member(current_share,u) %>
+	<% end %>
+</div>
+<% end %>
+<div id="content">
+	<h1><%= current_share.name %></h1>
+	<h2>add an item</h2>
+	<%= render :partial=>"items/form" %>
+	<h2>add a payment</h2>
+	<%= render :partial=>"payments/form" %>
+	<% @share_elements.reverse.each do |item| -%>
+		<% if (item.payee rescue false) -%>
+			<%= render :partial => "payments/payment_details", :locals =>{:p => item} %>
+		<% else -%>
+			<%= render :partial => "items/item_details", :locals =>{ :i => item} %>
+		<% end -%>
+	<% end -%>
+</div>

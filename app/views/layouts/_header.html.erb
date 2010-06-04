@@ -1,0 +1,22 @@
+<% if current_user -%>
+<ul class="right">
+	<li><%= link_to 'logout', logout_path, :method => :delete %></li>
+	<li><%= link_to current_user.username, user_path(current_user.id) %></li>
+	<li><%= link_to 'groups', root_url %></li>
+</ul>
+<% elsif controller_name=='user_sessions' || (controller_name=='users' && (action_name=='new' || action_name=='create'))  -%>
+
+<ul class="right">
+	<li><%= link_to 'login', login_path %></li>
+	<li><%= link_to 'signup', signup_path %></li>
+</ul>
+<% else -%>
+	<% form_for @user_session, :url => login_path do |f| %>
+		<%= f.label :email %>
+		<%= f.text_field :email, :class=>'input' %>
+		<%= f.label :password %>
+		<%= f.password_field :password, :class=>'input' %>
+		<%= image_submit_tag stylesheet_path('img/small_login_btn.gif'), :id=>'small_login_btn' %>
+		<% end -%>
+<% end -%>
+<%= link_to '<span>dashboard</span>', root_path, :id=>'home' %>

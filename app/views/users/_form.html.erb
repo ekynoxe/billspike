@@ -1,0 +1,19 @@
+<% form_for @user,:url=>@form_url do |f| %>
+	<%= error_messages_for :user, :header_message => "", :message => "" %>
+	<%= f.label :username %>
+	<%= f.text_field :username, :class=>'input' %>
+	
+	<%= f.label :email %>
+	<%= f.text_field :email, :class=>'input' %>
+	
+	<%= f.label :password, f.object.new_record? ? nil : "Change password" %>
+	<%= f.password_field :password, :class=>'input' %>
+	
+	<%= f.label :password_confirmation %>
+	<%= f.password_field :password_confirmation, :class=>'input' %>
+	<% if @invitation_token -%>
+	<%= hidden_field_tag :invitation_token, @invitation_token -%>
+	<% end -%>
+  	
+	<%= image_submit_tag image_url, :class=>'submit' %>
+<% end %>

@@ -1,0 +1,12 @@
+<div id="content">
+	<h1>edit</h1>
+	
+	<% form_for @item, :url => share_item_path(current_share.id, @item) do |f| %>
+		<%= f.error_messages %>
+		<%= f.label :description %><%= f.text_field :description, :class=>'input' %>
+		<%= f.label :value %><%= f.text_field :value, :class=>'input',:value=>@item.value / Float(100) %>
+		<%= f.submit "Update" %>
+	<% end %>
+	
+	<%= link_to "Cancel", share_path(current_share.id) %>
+</div>

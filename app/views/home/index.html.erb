@@ -1,0 +1,33 @@
+<% if current_user %>
+<% content_for :sidebar do -%>
+	<div id="sidebar">
+	<%= link_to '<span>create a new group</span>', new_share_path, :id=>'create_group_btn' %>
+		<% unless @invites.empty? %>
+		<h1>You are invited:</h1>
+		<table>
+			<tbody>
+				<tr><th>invitor</th><th>share</th><th>sent</th></tr>
+		<%= render :partial => "invites/invite_details", :collection => @invites, :as => :i %>
+			</tbody>
+		</table>
+		<% end %>
+	</div>
+<% end -%>
+
+<div id="content">
+	<h1>Your groups</h1>
+	<% if @shares.empty? %>
+	  <div>You do not have any active share yet</div>
+	<% else %>
+	<%= render :partial => "shares/share_details", :collection => @shares, :as => :s %>
+	<% end %>
+</div>
+<% else %>
+<% content_for :sidebar do -%>
+<% end -%>
+	<div id="home_block">
+		<p><span class="green">Billspike</span> helps you <span class="green">track expenses</span> for a group of people and not worry about the maths. All bills are <span class="green">safely kept</span> and everyone is always aware of the amounts owed through <span class="green">email alerts</span>.</p>
+		<p>Billspike is <span class="green">easy and free!</span> <%= link_to '<span>Sign up now</span>', new_user_path, :id=>'signupnow_btn' %></p>
+		<%= image_tag 'large_logo.gif', :id=>'front_logo' %>
+	</div>
+<% end %>

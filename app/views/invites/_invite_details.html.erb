@@ -1,0 +1,6 @@
+<tr>
+	<td><%= i.sender.username -%></td>
+	<td><%= i.share.name -%></td>
+	<td><%= time_ago_in_words(i.sent_at) -%> ago</td>
+	<td><%= link_to 'accept', accept_invite_path(i.share,i.token) -%></td>
+</tr>

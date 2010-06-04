@@ -1,0 +1,23 @@
+<% content_for :sidebar do -%>
+	<div id="sidebar_large">
+		<h2>Not a member yet?</h2>
+		<h2 class="green">Create an account</h2>
+		<p>Billspike helps you <span class='green'>track expenses</span> in your group.</p>
+		<p class="green">It’s easy and it’s free! <%= link_to 'Sign up now', new_user_path %></p>
+	</div>
+<% end -%>
+<div id="small_content">
+	<h1>Login</h1>
+	<% if flash[:notice] %>
+	  <div id="notice"><%= flash[:notice] %></div>
+	<% end %>
+	
+	<% form_for @user_session, :url => login_path do |f| %>
+	  <%= error_messages_for :user_session, :header_message => "", :message => "" %>
+	  <%= f.label :email %>
+	  <%= f.text_field :email, :class=>'input' %>
+	  <%= f.label :password %>
+	  <%= f.password_field :password, :class=>'input' %>
+	  <%= f.submit "Login" %>
+	<% end %>
+</div>

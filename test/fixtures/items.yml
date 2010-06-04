@@ -1,0 +1,17 @@
+1:
+  id: 1
+  currency_id: 1
+  description: milk
+  value: 1.3
+
+2:
+  id: 2
+  currency_id: 1
+  description: council tax
+  value: 137 
+
+3:
+  id: 3
+  currency_id: 1
+  description: sponges
+  value: 2.1

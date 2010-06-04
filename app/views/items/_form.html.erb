@@ -1,0 +1,6 @@
+<% form_for @item, :url => share_items_path(current_share) do |i |-%>
+	description: <%= i.text_field :description %>
+	price: <%= i.text_field :value %>
+	<%= hidden_field_tag :share_id, current_share.id %>
+	<%= i.submit 'Save' %>
+<% end -%>

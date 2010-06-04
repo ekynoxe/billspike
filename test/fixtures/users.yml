@@ -1,0 +1,21 @@
+1:
+  id: 1
+  username: matt
+  firstname: Mathieu
+  lastname: Davy
+  aboutme: Triathlon forever!
+  share_id: 1
+  email: matt@ekynoxe.com
+  crypted_password: 9d85aab7508adda79b4dbdfe7b4ac1b76b419522be03e1d69900cb18ef72dee9fbda143099e9a6f4f467e854438b259b45eb53146ccc00271f712a455325d082
+  password_salt: BaoEMMStry3EDgAwh5pq
+
+2:
+  id: 2
+  username: john
+  firstname: John
+  lastname: Doe
+  aboutme: couch potato
+  share_id: 1
+  email: john@doe.com
+  crypted_password: 9d85aab7508adda79b4dbdfe7b4ac1b76b419522be03e1d69900cb18ef72dee9fbda143099e9a6f4f467e854438b259b45eb53146ccc00271f712a455325d082
+  password_salt: BaoEMMStry3EDgAwh5pq
