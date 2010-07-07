@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'shoulda'
 
 class UserTest < Test::Unit::TestCase
   # Replace this with your real tests.
