@@ -8,7 +8,6 @@ class SharesController < ApplicationController
   end
   
   def show
-    @column_width=50
     @item = current_share.items.new
     @payment = current_share.payments.new
     
