@@ -26,28 +26,17 @@ class User < ActiveRecord::Base
   end
   
   def total_for_share(share_id)
-    items=self.items.find(:all, :conditions=>["share_id=?", "#{share_id}"])
-    return calculate(items)
+    calculate(self.items.find(:all, :conditions=>["share_id=?", "#{share_id}"]))
   end
   
   def is_admin_for(share_id)
     shares = self.participations.all(:conditions=>{:share_id=>share_id,:admin=>true})
-    if shares.length!=0
-      return true
-    else
-      return false
-    end
+    !shares.empty?
   end
   
   private
   
   def calculate(items)
-    total=0
-    unless items.nil?
-      items.each do |i|
-        total += i.value
-      end
-      return total
-    end
+    items.inject(0) {|sum,n| sum + n.value }
   end
 end

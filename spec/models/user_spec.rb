@@ -81,3 +81,48 @@ describe User do
     @user.should have(1).item
   end
 end
+
+
+describe "User with items" do
+  before(:each) do
+    @valid_attributes = {
+      :username=>'matt',
+      :password=>'mypassword',
+      :password_confirmation=>'mypassword',
+      :email=>'matt@ekynoxe.com'
+    }
+    @user = User.create(@valid_attributes)
+    
+    @share1 = Share.create({:name=>'my share 1'})
+    @share2 = Share.create({:name=>'my share 2'})
+    
+    @item1 = Item.create({:value=>2345,:description=>'item 1'})
+    @item2 = Item.create({:value=>3345,:description=>'item 2'})
+    @item3 = Item.create({:value=>6545,:description=>'item 3'})
+
+    @user.contributions.create({:item=>@item1,:share=>@share1})
+    @user.contributions.create({:item=>@item2,:share=>@share1})
+    @user.contributions.create({:item=>@item3,:share=>@share2})
+  end
+
+  it "should have 2 items" do
+    @user.contributions.length.should == 3
+  end
+  
+  it "should get the grand total" do
+    @user.grand_total.should == 12235
+  end
+  
+  it "should get the total for share 1" do
+    @user.total_for_share(1).should == 5690
+  end
+  
+  it "should be admin" do
+    @share1.participations.create({:user=>@user, :admin=>true})
+    @user.is_admin_for(1).should be true
+  end
+  
+  it "should not be admin" do
+    @user.is_admin_for(1).should_not be true
+  end
+end
