@@ -24,11 +24,29 @@ describe User do
     @user.should be_valid
   end
   
+  it "should not be valid with a username already taken" do
+    @user.attributes = @valid_attributes
+    @user.should be_valid
+    @user.save!
+    @user2 = User.create(@valid_attributes.except(:email))
+    @user2.email = "pilot@ekynoxe.com"
+    @user2.should_not be_valid
+  end
+  
   it "should not be valid without an email" do
     @user.attributes = @valid_attributes.except(:email)
     @user.should_not be_valid
     @user.email = "matt@ekynoxe.com"
     @user.should be_valid
+  end
+
+  it "should not be valid with an email already taken" do
+    @user.attributes = @valid_attributes
+    @user.should be_valid
+    @user.save!
+    @user2 = User.create(@valid_attributes.except(:username))
+    @user2.username = "otherusername"
+    @user2.should_not be_valid
   end
   
   it "should not be valid without a password" do
