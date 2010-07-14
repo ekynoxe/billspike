@@ -12,6 +12,11 @@ describe User do
     @user = User.new
   end
 
+  it "should be valid given valid attributes" do
+    @user.attributes = @valid_attributes
+    @user.should be_valid
+  end
+  
   it "should not be valid without a user name" do
     @user.attributes = @valid_attributes.except(:username)
     @user.should_not be_valid
