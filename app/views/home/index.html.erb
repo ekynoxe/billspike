@@ -1,8 +1,8 @@
 <% if current_user %>
 <% content_for :sidebar do -%>
 <div id="sidebar_wrapper">
-	<div id="sidebar">
-	<%= link_to '<span>create a new group</span>', new_share_path, :id=>'create_group_btn' %>
+	<div id="sidebar_wapper">
+	<%= link_to '<span class="new_group">create a group</span>', new_share_path %>
 		<% unless @invites.empty? %>
 		<h1>You are invited:</h1>
 		<table>

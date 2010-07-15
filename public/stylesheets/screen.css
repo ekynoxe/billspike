@@ -33,6 +33,7 @@ label{
 .right{float: right;}
 .left{float: left;}
 .small{font-size: 0.8em;}
+.very_small{font-size: 0.65em;}
 .dark_grey{color: #333;}
 .green{ color: #abdb00;}
 .green_bg{background-color:#abdb00; color: #fff;}
@@ -54,6 +55,15 @@ label{
 	padding:5px;
 }
 	#small_content .input{ width: 433px;}
+	
+.small_input{
+	border:1px solid #CCCCCC;
+	color:#666666;
+	font-size:1.1em;
+	margin-right:10px;
+	padding:5px;
+	width:240px;
+}
 .submit{
 	margin: 20px 0px;
 }
@@ -210,6 +220,11 @@ label{
 		display:block;
 		padding-left:55px;
 	}
+	#sidebar_wrapper a span.new_group{
+		background:url("img/new_group.gif") 0 4px no-repeat;
+		display:block;
+		padding-left:55px;
+	}
 
 #create_group_btn{
 	background: transparent url('img/create_group_btn.gif') top left no-repeat;
@@ -235,6 +250,10 @@ label{
 	.block ul li{
 		display: inline;
 	}
+	.block ul li a{
+		color: #333;
+	}
+
 #home_block{
 	-moz-border-radius: 15px;
 	background: #fff;

@@ -1,7 +1,7 @@
 <div class="block">
 	<div class="right">
 		<p><%= number_to_currency(i.value / Float(100), :precision => 2, :unit => "&pound;") %></p>
-		<ul class="small">
+		<ul class="very_small">
 			<% if i.user.id == current_user.id %>
 			<li><%= link_to "Delete", share_item_path(current_share,i), :method => :delete, :confirm=>"Are you sure? This cannot be undone!" %></li>
 			<li><%= link_to "Edit", edit_share_item_path(current_share,i) %></li>
