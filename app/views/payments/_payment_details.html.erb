@@ -8,5 +8,6 @@
 			<% end %>
 		</ul>
 	</div>
-	<p class="small">by <%= p.user.username %> to <%= p.payee.username %> on <%= p.created_at %></p>
+	<p class="description dark_grey"><%= p.user.username %> to <%= p.payee.username %></p>
+	<p class="small"><%= p.created_at %></p>
 </div>

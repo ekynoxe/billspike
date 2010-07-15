@@ -1,9 +1,14 @@
 <% content_for :sidebar do %>
-<div id="sidebar">
-	<h2>members</h2>
-	<%	current_share.users.each do |u| %>
-		<%= format_sidebar_share_member(current_share,u) %>
-	<% end %>
+<div id="sidebar_wrapper">
+	<div id="sidebar">
+		<h2>members</h2>
+		<ul>
+		<%	current_share.users.each do |u| %>
+			<%= format_sidebar_share_member(current_share,u) %>
+		<% end %>
+		</ul>
+	</div>
+	<%= link_to '<span class="payments">Request payments</span>', request_payment_path(current_share) %>
 </div>
 <% end %>
 <div id="content">
