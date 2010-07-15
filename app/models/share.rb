@@ -13,13 +13,7 @@ class Share < ActiveRecord::Base
   validates_presence_of :name
   
   def total
-    total=0
-    
-    self.items.each do |i|
-      total += i.value
-    end
-    
-    return total
+    self.items.inject(0) {|sum,n| sum + n.value }
   end
   
   def get_all_elements
@@ -31,11 +25,7 @@ class Share < ActiveRecord::Base
   end
   
   def amount_per_participant
-    if self.users.length
-      return (self.total/self.users.length).round
-    else
-      return nil
-    end
+    self.total / self.users.length unless self.users.empty?
   end
   
   def find_max_owed
