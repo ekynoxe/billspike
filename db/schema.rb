@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100218235116) do
+ActiveRecord::Schema.define(:version => 20100716145033) do
 
   create_table "contributions", :force => true do |t|
     t.integer  "item_id"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20100218235116) do
     t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
   end
 
   create_table "shares", :force => true do |t|
