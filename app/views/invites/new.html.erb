@@ -1,6 +1,6 @@
 <div id="content">
 	<h1>New Invite</h1>
-	<% form_for @invite, :url => new_share_invite_path(current_share) do |invite| %>
+	<% form_for @invite, :url => share_invites_path(current_share) do |invite| %>
 	<%= error_messages_for :invite, :header_message => "", :message => "" %>
 	<%= invite.label :recipient_email %>
 	<%= invite.text_field :recipient_email, :class=>'input' %>

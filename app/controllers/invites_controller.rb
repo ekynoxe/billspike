@@ -24,7 +24,7 @@ class InvitesController < ApplicationController
     @invite=current_share.invites.build(invite_params)
     
     if @invite.save
-      UserMailer.deliver_invitation(@invite,share)
+      UserMailer.deliver_invitation(@invite,current_share)
       flash[:notice] = "Invite created!"
       redirect_to share_url(current_share)
     else
