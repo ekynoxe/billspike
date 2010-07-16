@@ -1,5 +1,6 @@
 class SharesController < ApplicationController
-  before_filter :require_user, :store_location
+  before_filter :require_user
+  before_filter :store_location, :except => [:new, :edit]
   before_filter :require_share, :except => [:index, :new, :create]
   before_filter :mailer_set_url_options, :only => [:request_payment]
   

@@ -9,6 +9,10 @@
 		</ul>
 	</div>
 	<%= link_to '<span class="payments">Request payments</span>', request_payment_path(current_share) %>
+	<% if current_user.is_admin_for(current_share.id) -%>
+		<%= link_to 'edit group', edit_share_path(current_share) -%>
+		<%= link_to 'invite people', new_share_invite_path(current_share) %>
+	<% end %>
 </div>
 <% end %>
 <div id="content">
