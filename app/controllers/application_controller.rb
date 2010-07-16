@@ -58,7 +58,7 @@ class ApplicationController < ActionController::Base
   end
   
   def current_share
-    return (params[:share_id].blank? || params[:id].blank?) ? current_user.shares.find(params[:share_id] || params[:id]) : false
+    current_user.shares.find(params[:share_id] || params[:id])
   end
   
   def require_share

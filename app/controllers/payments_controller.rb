@@ -2,6 +2,11 @@ class PaymentsController < ApplicationController
   before_filter :require_user
   before_filter :filter_units, :only=>[:create, :update]
   
+  def new
+    @other_users = other_users(current_share)
+    @payment = current_user.payments.new
+  end
+  
   def create
     if share=current_user.shares.find(params[:share_id])
       @payment=Payment.new(params[:payment])
@@ -38,5 +43,9 @@ class PaymentsController < ApplicationController
       payment.destroy
       redirect_back_or_default root_url
     end
+  end
+  
+  def other_users(share)
+    return share.users.find_all{|u| u!=current_user}
   end
 end
