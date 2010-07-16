@@ -192,12 +192,12 @@ label{
 	text-decoration: none;
 }
 #sidebar a:hover, #sidebar a.selected{color: #333333;}
-#sidebar ul li{
+#sidebar ul.members li{
 	border-left: 4px solid #ccc;
 	margin-top: 8px;
 	padding-left: 8px;
 }
-#sidebar ul li span{font-size: 75%;}
+#sidebar ul.members li span{font-size: 75%;}
 
 
 #sidebar_wrapper a{

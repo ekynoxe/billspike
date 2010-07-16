@@ -1,7 +1,8 @@
 <% content_for :sidebar do -%>
-	<div id="sidebar_large">
+<div id="sidebar_wrapper">
+	<div id="sidebar">
 		<h2>Just one step away from...</h2>
-		<ul class="green_leafs">
+		<ul class="small green_leafs">
 			<li>Creating your own groups</li>
 			<li>Inviting members to join</li>
 			<li>tracking expenses</li>
@@ -9,8 +10,9 @@
 			<li>... and not worry about the maths</li>
 		</ul>
 	</div>
+</div>
 <% end -%>
-<div id="small_content">
+<div id="content">
 	<h1>Sign up</h1>
 	<%= render :partial => "form", :locals=>{:submit_txt=>'Create',:image_url=>stylesheet_path('img/signup_btn.gif')} %>
 </div>

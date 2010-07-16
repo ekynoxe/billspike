@@ -2,7 +2,7 @@
 <div id="sidebar_wrapper">
 	<div id="sidebar">
 		<h2>members</h2>
-		<ul>
+		<ul class="members">
 		<%	current_share.users.each do |u| %>
 			<%= format_sidebar_share_member(current_share,u) %>
 		<% end %>
