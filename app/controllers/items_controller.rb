@@ -9,10 +9,10 @@ class ItemsController < ApplicationController
       if @item.save
         share.contributions.create :user=>current_user, :item=>@item
       else
-        flash[:notice]='could not save'
+        flash[:item_notice]='could not save'
       end
     else
-      flash[:notice]='could not find required share'
+      flash[:item_notice]='could not find required share'
     end
     
     redirect_back_or_default root_url

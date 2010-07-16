@@ -8,10 +8,10 @@ class PaymentsController < ApplicationController
       if @payment.save
         share.transactions.create :user=>current_user, :payment=>@payment, :payee_id=>params[:payee_id]
       else
-        flash[:notice]='could not save'
+        flash[:payment_notice]='could not save'
       end
     else
-      flash[:notice]='could not find required share'
+      flash[:payment_notice]='could not find required share'
     end
     
     redirect_back_or_default root_url

@@ -1,4 +1,6 @@
 <% form_for @payment,:url => share_payments_path(current_share) do |p|-%>
+	<%= p.error_messages %>
+	<%= flash[:payment_notice] %>
 	<%= p.text_field :value, :class=>"small_input", :value => "amount" %>
 	<%= select_tag (:payee_id,options_for_select(@other_users.map {|u| [u.username,u.id]}), :class=>"small_input") %>
 	<%= hidden_field_tag :share_id, current_share.id %>
