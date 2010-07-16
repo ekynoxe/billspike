@@ -16,7 +16,7 @@
 </div>
 <% end %>
 <div id="content">
-	<h1><%= current_share.name %></h1>
+	<h1><%= current_share.name %><span class="small light right"><%= number_to_currency(current_share.total / Float(100), :precision => 2, :unit => "&pound;") %></span></h1>
 	<h2>add an item</h2>
 	<%= render :partial=>"items/form" %>
 	<h2>add a payment</h2>
