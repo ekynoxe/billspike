@@ -15,5 +15,5 @@
 	<%= hidden_field_tag :invitation_token, @invitation_token -%>
 	<% end -%>
   	
-	<%= image_submit_tag image_url, :class=>'submit' %>
+	<%= submit_tag 'update', :class=>'submit' %>  <%= link_to "cancel", session[:return_to] || shares_path %>
 <% end %>

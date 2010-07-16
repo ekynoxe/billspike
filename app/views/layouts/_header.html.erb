@@ -1,7 +1,7 @@
 <% if current_user -%>
 <ul class="right">
 	<li><%= link_to 'logout', logout_path, :method => :delete %></li>
-	<li><%= link_to current_user.username, user_path(current_user.id) %></li>
+	<li><%= link_to current_user.username, edit_user_path(current_user.id) %></li>
 	<li><%= link_to 'groups', root_url %></li>
 </ul>
 <% elsif controller_name=='user_sessions' || (controller_name=='users' && (action_name=='new' || action_name=='create'))  -%>
