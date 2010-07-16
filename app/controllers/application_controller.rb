@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   
   def filter_units
-    params[:item] = filter_units_inputs(params[:item])
+    params[:item]     = filter_units_inputs(params[:item])    unless params[:item].blank?
+    params[:payment]  = filter_units_inputs(params[:payment]) unless params[:payment].blank?
   end
   
   def filter_units_inputs(input)
