@@ -1,0 +1,10 @@
+<% form_for @payment, :url => url do |f| %>
+	<%= f.error_messages %>
+	<%= flash[:payment_notice] %>
+	
+	<%= f.label :value %><%= f.text_field :value, :class=>'input',:value=> value %><br/>
+	<%= f.label :description %><%= f.text_field :description, :class=>"small_input" %><br/>
+	<%= label_tag 'to:' %><%= select_tag(:payee_id,options_for_select(@other_users.map {|u| [u.username,u.id]}), :class=>"small_input") %><br/>
+	<%= hidden_field_tag :share_id, current_share.id %><br/>
+	<%= f.submit button_text %>
+<% end %>

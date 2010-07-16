@@ -1,0 +1,5 @@
+<div id="content">
+	<h1>add a payment</h1>
+	<%= render :partial => "payment_form", :locals=>{:url=>new_share_payment_path(current_share.id), :value => '',:button_text=>'Add'} %>
+	<%= link_to "Cancel", share_path(current_share.id) %>
+</div>

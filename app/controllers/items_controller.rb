@@ -2,6 +2,11 @@ class ItemsController < ApplicationController
   before_filter :require_user
 #  before_filter :make_cents, :only=>[:create, :update]
   before_filter :filter_units, :only=>[:create, :update]
+  before_filter :require_share, :only => [:edit, :update]
+  
+  def new
+    @item = current_user.items.new
+  end
   
   def create
     if share=current_user.shares.find(params[:share_id])
