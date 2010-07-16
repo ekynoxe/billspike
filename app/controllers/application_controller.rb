@@ -1,14 +1,32 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
-  helper :all # include all helpers, all the time
+  helper :all
   helper_method :current_user_session, :current_user, :current_share
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+  protect_from_forgery
 
 # Scrub sensitive parameters from your log
   filter_parameter_logging :password, :password_confirmation
-
+  
+  def filter_units
+    params[:item]     = filter_units_inputs(params[:item])    unless params[:item].blank?
+    params[:payment]  = filter_units_inputs(params[:payment]) unless params[:payment].blank?
+  end
+  
+  def filter_units_inputs(input)
+    if [Array, Hash, HashWithIndifferentAccess].include?(input.class)
+      input.each do |key, value|
+#recurse through the data structure
+        input[key] = self.filter_units_inputs(value)
+      end
+#match the string format for a float with ot without decimals
+    elsif not input.nil? and input.match(/^\d+(\.)?(\d+)?$/)
+#convert to a minor unit integer
+      (input.to_f * 100.0).to_i
+    else
+#return the value unchanged
+      input
+    end
+  end
+  
   private
   
   def current_user_session

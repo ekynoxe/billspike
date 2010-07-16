@@ -8,9 +8,9 @@
 	</p>
 	<p>
 	<% if (owes = s.calculate_total_for_user(current_user)) >0 -%>
-		<span class="red_bg">You owe <%= number_to_currency(owes.abs / Float(100), :precision => 2, :unit => "&pound;") %></span>
+		<span class="red">You owe <%= number_to_currency(owes.abs / Float(100), :precision => 2, :unit => "&pound;") %></span>
 	<% else -%>
-		<span class="green_bg">You are owed <%= number_to_currency(owes.abs / Float(100), :precision => 2, :unit => "&pound;") %></span>
+		<span class="green">You are owed <%= number_to_currency(owes.abs / Float(100), :precision => 2, :unit => "&pound;") %></span>
 	<% end -%>
 	</p>
 </div>

@@ -1,14 +1,17 @@
 class PaymentsController < ApplicationController
   before_filter :require_user
-  before_filter :make_cents, :only=>[:create, :update]
+  before_filter :filter_units, :only=>[:create, :update]
   
   def create
-    @payment=current_user.payments.build(params[:payment])
-    
-    if(@payment && share=current_user.shares.find(params[:share_id]))
-      share.transactions.create :user=>current_user, :payment=>@payment, :payee_id=>params[:payee_id]
+    if share=current_user.shares.find(params[:share_id])
+      @payment=Payment.new(params[:payment])
+      if @payment.save
+        share.transactions.create :user=>current_user, :payment=>@payment, :payee_id=>params[:payee_id]
+      else
+        flash[:payment_notice]='could not save'
+      end
     else
-      flash[:notice]='there has been a problem finding the share to save the payment on'
+      flash[:payment_notice]='could not find required share'
     end
     
     redirect_back_or_default root_url
@@ -35,11 +38,5 @@ class PaymentsController < ApplicationController
       payment.destroy
       redirect_back_or_default root_url
     end
-  end
-  
-  private
-  
-  def make_cents
-    params[:payment][:value] = params[:payment][:value].to_f*100
   end
 end

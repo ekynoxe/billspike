@@ -1,12 +1,13 @@
 <div class="block">
 	<div class="right">
 		<p><%= number_to_currency(p.value / Float(100), :precision => 2, :unit => "&pound;") %></p>
-		<ul class="small">
+		<ul class="very_small">
 			<% if p.user.id == current_user.id %>
 			<li><%= link_to "Delete", share_payment_path(current_share,p), :method => :delete, :confirm=>"Are you sure? This cannot be undone!" %></li>
 			<li><%= link_to "Edit", edit_share_payment_path(current_share,p) %></li>
 			<% end %>
 		</ul>
 	</div>
-	<p class="small">by <%= p.user.username %> to <%= p.payee.username %> on <%= p.created_at %></p>
+	<p class="description dark_grey"><%= p.user.username %> to <%= p.payee.username %></p>
+	<p class="small"><%= p.created_at %></p>
 </div>

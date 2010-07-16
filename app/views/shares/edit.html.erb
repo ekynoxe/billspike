@@ -4,6 +4,6 @@
 	<% form_for @share do |f| %>
 	  <%= f.error_messages %>
 	  <%= render :partial => "form", :object => f %>
-	  <%= f.submit "Update" %>
+	  <%= f.submit "Update" %> <%= link_to "cancel", session[:return_to] || shares_path %>
 	<% end %>
 </div>

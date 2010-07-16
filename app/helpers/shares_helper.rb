@@ -9,6 +9,6 @@ module SharesHelper
   				classname = 'red'
   			end
 
-  		%Q{<p class="#{classname}">#{user.username}#{separator}#{number_to_currency(user_amount.abs / Float(100), :precision => 2, :unit => "&pound;")}</p>}
+  		%Q{<li><div class="name">#{user.username}</div><span class="#{classname}">#{separator}#{number_to_currency(user_amount.abs / Float(100), :precision => 2, :unit => "&pound;")}</span></li>}
   end
 end

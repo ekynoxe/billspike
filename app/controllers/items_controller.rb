@@ -1,19 +1,18 @@
 class ItemsController < ApplicationController
   before_filter :require_user
-  before_filter :make_cents, :only=>[:create, :update]
+#  before_filter :make_cents, :only=>[:create, :update]
+  before_filter :filter_units, :only=>[:create, :update]
   
   def create
-
-#    COULD THIS BE DONE WITH A collection.build like: 
-#    item=Item.create(params[:item])
-#    share=current_user.shares.find(params[:share_id])
-#    current_user.contributions.create :share=>share, :item=>@item
-
-    @item=current_user.items.build(params[:item])
     if share=current_user.shares.find(params[:share_id])
-      share.contributions.create :user=>current_user, :item=>@item
+      @item=Item.new(params[:item])
+      if @item.save
+        share.contributions.create :user=>current_user, :item=>@item
+      else
+        flash[:item_notice]='could not save'
+      end
     else
-      flash[:notice]='there has been a problem finding the share to save the item on'
+      flash[:item_notice]='could not find required share'
     end
     
     redirect_back_or_default root_url
@@ -45,6 +44,6 @@ class ItemsController < ApplicationController
   private
   
   def make_cents
-    params[:item][:value] = params[:item][:value].to_f*100
+#    params[:item][:value] = params[:item][:value].to_f*100
   end
 end

@@ -1,13 +1,22 @@
 <% content_for :sidebar do %>
-<div id="sidebar">
-	<h2>members</h2>
-	<%	current_share.users.each do |u| %>
-		<%= format_sidebar_share_member(current_share,u) %>
+<div id="sidebar_wrapper">
+	<div id="sidebar">
+		<h2>members</h2>
+		<ul class="members">
+		<%	current_share.users.each do |u| %>
+			<%= format_sidebar_share_member(current_share,u) %>
+		<% end %>
+		</ul>
+	</div>
+	<%= link_to '<span class="payments">Request payments</span>', request_payment_path(current_share) %>
+	<% if current_user.is_admin_for(current_share.id) -%>
+		<%= link_to 'edit group', edit_share_path(current_share) -%>
+		<%= link_to 'invite people', new_share_invite_path(current_share) %>
 	<% end %>
 </div>
 <% end %>
 <div id="content">
-	<h1><%= current_share.name %></h1>
+	<h1><%= current_share.name %><span class="small light right"><%= number_to_currency(current_share.total / Float(100), :precision => 2, :unit => "&pound;") %></span></h1>
 	<h2>add an item</h2>
 	<%= render :partial=>"items/form" %>
 	<h2>add a payment</h2>

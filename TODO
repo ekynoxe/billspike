@@ -1,1 +1,14 @@
-display the request payment functionality
+== TODO ==
+- a group comprises users, items and payments
+- a user can subscribe to a group
+- a user can create a group
+- when a user create a group, they are the group owner, and considered administrator of this group
+- a user can be a group owner or an invitee in the group
+- a group administrator can invite others by email
+- a user can add items to a group
+- a user can add payments to a group, towards settling their balance with other users
+- the group shared and owned amounts are updated upon adding an item or a payment
+- a group owner can send reminders to settle the accounts
+- users should be able to filter group items and payments
+- users should be able to search for public groups
+- display the request payment functionality

@@ -1,7 +1,15 @@
-==== README ====
+== BILLSPIKE ==
+
+Mathieu Davy - 2010
+matt@ekynoxe.com
+http://ekynoxe.com/ref/billspike_repo
 
 This is the codebase behind http://billspike.com
 
+--------------------------------------------------------------------------------------------------
 
-Matt
-http://ekynoxe.com/ref/billspike_repo
+Billspike is intended to help house shares manage the common bills and present simply to everyone
+the amounts owed.
+
+
+== INSTALLATION ==

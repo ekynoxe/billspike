@@ -1,12 +1,17 @@
 <% content_for :sidebar do -%>
-	<div id="sidebar_large">
+<div id="sidebar_wrapper">
+	<div id="sidebar">
 		<h2>Not a member yet?</h2>
-		<h2 class="green">Create an account</h2>
-		<p>Billspike helps you <span class='green'>track expenses</span> in your group.</p>
-		<p class="green">It’s easy and it’s free! <%= link_to 'Sign up now', new_user_path %></p>
+		<h3 class="green">Create an account</h3>
+		<p>
+			Billspike helps you <span class='green'>track expenses</span> in your group.
+			<span class="green">It’s easy and it’s free!</span>
+			<%= link_to 'Sign up now', new_user_path, :class=>'green' %>
+		</p>
 	</div>
+</div>
 <% end -%>
-<div id="small_content">
+<div id="content">
 	<h1>Login</h1>
 	<% if flash[:notice] %>
 	  <div id="notice"><%= flash[:notice] %></div>

@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   #before_filter :require_user
+  before_filter :store_location
   
   def index
     if current_user
