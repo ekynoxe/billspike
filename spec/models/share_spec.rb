@@ -54,7 +54,8 @@ describe "Share with participants" do
   end
 
   it "should have 2 participants" do
-    @share.participations.length.should == 2
+    @share.participants.should == 2
+#    @share.participations.length.should == 2
   end
   
   it "should give the amount per participant" do

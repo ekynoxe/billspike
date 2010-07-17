@@ -45,6 +45,10 @@ class Share < ActiveRecord::Base
     return amount_per_participant - user.total_for_share(self.id) + user_payments_received - user_payments_sent
   end
   
+  def participants
+    self.participations.length
+  end
+  
   def user_payments_received_for_id(user_id)
     return self.payments.find(:all,:conditions=>["payee_id=?", user_id])
   end
