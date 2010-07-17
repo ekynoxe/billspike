@@ -1,9 +1,7 @@
-<div id="content">
-	<h1>New Invite</h1>
-	<% form_for @invite, :url => share_invites_path(current_share) do |invite| %>
-	<%= error_messages_for :invite, :header_message => "", :message => "" %>
-	<%= invite.label :recipient_email %>
-	<%= invite.text_field :recipient_email, :class=>'input' %>
-	<%= invite.submit "Create" %> <%= link_to "cancel", session[:return_to] || shares_path %>
-	<% end %>
-</div>
+<h1>New Invite</h1>
+<% form_for @invite, :url => share_invites_path(current_share) do |invite| %>
+<%= error_messages_for :invite, :header_message => "", :message => "" %>
+<%= invite.label :recipient_email %>
+<%= invite.text_field :recipient_email, :class=>'input' %>
+<%= invite.submit "Create" %> <%= link_to "cancel", session[:return_to] || shares_path %>
+<% end %>

@@ -140,14 +140,20 @@ label{
 #content{
 	-moz-border-radius-topleft:25px;
 	-moz-border-radius-topright:25px;
-	background:#FFFFFF;
+	background: #fff;
 	border-left:1px solid #CCCCCC;
 	border-right:1px solid #CCCCCC;
 	border-top:1px solid #CCCCCC;
 	float:right;
-	margin-bottom:40px;
-	padding:10px 25px 20px;
+	padding:10px 21px 20px;
 	width:600px;
+}
+#content_bottom{
+	background: #fff url('img/content_bg.gif') top left no-repeat;
+	float:right;
+	height: 28px;
+	margin-bottom:40px;
+	width:644px;
 }
 #small_content{
 	float:right;
@@ -169,7 +175,7 @@ label{
 	border-top:1px solid #CCCCCC;
 	border-right: 4px solid #efefef;
 	padding:6px 15px 15px;
-	width:193px;
+	width:201px;
 }
 
 #sidebar_large{
@@ -213,7 +219,7 @@ label{
 	margin:10px 0;
 	padding:0 15px;
 	text-decoration:none;
-	width:193px;
+	width:201px;
 }
 #sidebar_wrapper a:hover{text-decoration: underline;}
 	#sidebar_wrapper a span.payments{
@@ -253,6 +259,22 @@ label{
 	}
 	.block ul li a{
 		color: #333;
+	}
+
+	.block a.edit_link span, .block a.invite_link span{display: none;}
+	.block a.edit_link{
+		background: url("img/edit_link.gif") top left no-repeat;
+		display: block;
+		float: right;
+		height: 26px;
+		width: 62px;
+	}
+	.block a.invite_link{
+		background: url("img/invite_link.gif") top left no-repeat;
+		display: block;
+		float: right;
+		height: 26px;
+		width: 124px;
 	}
 
 #home_block{

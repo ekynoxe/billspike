@@ -1,7 +1,7 @@
 <div class="block">
 	<ul class="right">
-		<li><% if current_user.is_admin_for(s.id) -%><%= link_to 'edit', edit_share_path(s) -%><% end -%></li>
-		<li><% if current_user.is_admin_for(s.id) %><%= link_to 'invite people', new_share_invite_path(s) %><% end %></li>
+		<li><% if current_user.is_admin_for(s.id) %><%= link_to '<span>invite people</span>', new_share_invite_path(s), :class=>"invite_link" %><% end %></li>
+		<li><% if current_user.is_admin_for(s.id) -%><%= link_to '<span>edit</span>', edit_share_path(s), :class=>"edit_link" -%><% end -%></li>
 	</ul>
 	<p>
 		<%= link_to s.name, share_path(s) %>

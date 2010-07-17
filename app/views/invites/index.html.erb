@@ -1,12 +1,10 @@
-<div id="content">
-	<h1>invites</h1>
-	<% if !@invites %>
-	  <div>no invites</div>
-	<% else %>
-	<% @invites.each do |i| %>
-	<p>
-	<%= i.recipient_email %> | <%= i.sender.username %> | <%= i.token %> |  
-	</p>
-	<% end %>
-	<% end %>
-</div>
+<h1>invites</h1>
+<% if !@invites %>
+  <div>no invites</div>
+<% else %>
+<% @invites.each do |i| %>
+<p>
+<%= i.recipient_email %> | <%= i.sender.username %> | <%= i.token %> |  
+</p>
+<% end %>
+<% end %>
