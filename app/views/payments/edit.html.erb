@@ -1,5 +1,3 @@
-<div id="content">
-	<h1>edit payment</h1>
-	<%= render :partial => "payment_form", :locals=>{:url=>share_payment_path(current_share.id, @payment), :value => @payment.value / Float(100),:button_text=>'Update'} %>
-	<%= link_to "Cancel", share_path(@payment.share) %>
-</div>
+<h1>edit payment</h1>
+<%= render :partial => "payment_form", :locals=>{:url=>share_payment_path(current_share.id, @payment), :value => @payment.value / Float(100),:button_text=>'Update'} %>
+<%= link_to "Cancel", share_path(@payment.share) %>

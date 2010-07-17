@@ -1,5 +1,3 @@
-<div id="content">
-	<h1>edit item</h1>
-	<%= render :partial => "item_form", :locals=>{:url=>share_item_path(current_share.id, @item), :value => @item.value / Float(100),:button_text=>'Update'} %>
-	<%= link_to "Cancel", share_path(current_share.id) %>
-</div>
+<h1>edit item</h1>
+<%= render :partial => "item_form", :locals=>{:url=>share_item_path(current_share.id, @item), :value => @item.value / Float(100),:button_text=>'Update'} %>
+<%= link_to "Cancel", share_path(current_share.id) %>

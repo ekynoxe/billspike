@@ -1,12 +1,10 @@
-<div id="content">
-	<p>
-		<b>Username:</b>
-		<%=h @user.username %>
-	</p>
-	<p>
-		<b>Email:</b>
-		<%=h @user.email %>
-	</p>
+<p>
+	<b>Username:</b>
+	<%=h @user.username %>
+</p>
+<p>
+	<b>Email:</b>
+	<%=h @user.email %>
+</p>
 
-	<%= link_to 'Edit', edit_user_path(@user) %>
-</div>
+<%= link_to 'Edit', edit_user_path(@user) %>

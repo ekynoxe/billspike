@@ -15,15 +15,14 @@
 	<% end %>
 </div>
 <% end %>
-<div id="content">
-	<h1><%= current_share.name %><span class="small light right"><%= number_to_currency(current_share.total / Float(100), :precision => 2, :unit => "&pound;") %></span></h1>
-	<%= link_to 'add an item', new_share_item_path(current_share.id) %> | 
-	<%= link_to 'add a payment', new_share_payment_path(current_share.id) %>
-	<% @share_elements.reverse.each do |item| -%>
-		<% if (item.payee rescue false) -%>
-			<%= render :partial => "payments/payment_details", :locals =>{:p => item} %>
-		<% else -%>
-			<%= render :partial => "items/item_details", :locals =>{ :i => item} %>
-		<% end -%>
+
+<h1><%= current_share.name %><span class="small light right"><%= number_to_currency(current_share.total / Float(100), :precision => 2, :unit => "&pound;") %></span></h1>
+<%= link_to 'add an item', new_share_item_path(current_share.id) %> | 
+<%= link_to 'add a payment', new_share_payment_path(current_share.id) %>
+<% @share_elements.reverse.each do |item| -%>
+	<% if (item.payee rescue false) -%>
+		<%= render :partial => "payments/payment_details", :locals =>{:p => item} %>
+	<% else -%>
+		<%= render :partial => "items/item_details", :locals =>{ :i => item} %>
 	<% end -%>
-</div>
+<% end -%>
