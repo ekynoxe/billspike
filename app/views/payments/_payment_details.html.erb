@@ -8,6 +8,6 @@
 			<% end %>
 		</ul>
 	</div>
-	<p class="description dark_grey"><%= p.user.username %> to <%= p.payee.username %> <%= '<span class="small light">('+p.description+')</span>' unless p.description.blank? %></p>
+	<p class="description dark_grey"><%= p.user.username %> to <%= p.payee.username %> <%= '<span class="small light">'+p.description+'</span>' unless p.description.blank? %></p>
 	<p class="small"><%= p.created_at %></p>
 </div>
