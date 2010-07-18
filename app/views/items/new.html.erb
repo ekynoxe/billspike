@@ -1,3 +1,3 @@
 <h1>add an item</h1>
-<%= render :partial => "item_form", :locals=>{:url=>share_payments_path(current_share.id), :value=>'',:button_text=>'Create'} %>
+<%= render :partial => "item_form", :locals=>{:url=>share_items_path(current_share.id), :value=>'',:button_text=>'Create'} %>
 <%= link_to "Cancel", share_path(current_share.id) %>
