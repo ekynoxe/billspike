@@ -23,6 +23,7 @@ class PaymentsController < ApplicationController
   end
   
   def edit
+    @other_users = other_users(current_share)
     @payment = current_user.payments.find(params[:id])
   end
   
